@@ -1,0 +1,21 @@
+<Workspace Version="1.2.1.2802" X="142.645340551421" Y="127.068024406545" zoom="0.618911609095982" Name="Home" Description="" RunType="Automatic" RunPeriod="1000" HasRunWithoutCrash="True">
+  <NamespaceResolutionMap />
+  <Elements>
+    <Dynamo.Graph.Nodes.ZeroTouch.DSFunction guid="cea1af53-f42e-41fd-8a14-effedf257b04" type="Dynamo.Graph.Nodes.ZeroTouch.DSFunction" nickname="Parser.GetGeometries" x="524.324396185501" y="84.4577710756812" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false" isPinned="false" assembly="bin\Debug\DynamoPDF.dll" function="DynamoPDF.Parser.GetGeometries@string,double">
+      <PortInfo index="0" default="False" />
+      <PortInfo index="1" default="True" />
+    </Dynamo.Graph.Nodes.ZeroTouch.DSFunction>
+    <Dynamo.Graph.Nodes.CodeBlockNodeModel guid="c14b8b35-d92d-4d6e-88b8-051bcccd2221" type="Dynamo.Graph.Nodes.CodeBlockNodeModel" nickname="Code Block" x="-152.268398333697" y="26.1250918393449" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false" CodeText="&quot;C:\Users\MThumfart\Documents\GitHub\Grevit\DynamoPDF\Annotations.pdf&quot;;" ShouldFocus="false" />
+    <Dynamo.Graph.Nodes.CodeBlockNodeModel guid="167bf566-a36f-4cdb-9463-ca84c5547db0" type="Dynamo.Graph.Nodes.CodeBlockNodeModel" nickname="Code Block" x="382.208159859015" y="136.949236210201" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false" CodeText="1000;" ShouldFocus="false" />
+  </Elements>
+  <Connectors>
+    <Dynamo.Graph.Connectors.ConnectorModel start="c14b8b35-d92d-4d6e-88b8-051bcccd2221" start_index="0" end="cea1af53-f42e-41fd-8a14-effedf257b04" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="167bf566-a36f-4cdb-9463-ca84c5547db0" start_index="0" end="cea1af53-f42e-41fd-8a14-effedf257b04" end_index="1" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations />
+  <Presets />
+  <Cameras>
+    <Camera Name="Background Preview" eyeX="378683.194001492" eyeY="501800.620150854" eyeZ="-693446.147860749" lookX="-2610.05337649246" lookY="-501800.620150854" lookZ="216919.804110749" upX="0.0118104195621231" upY="-0.190808995376545" upZ="-0.981556132512637" />
+  </Cameras>
+</Workspace>
