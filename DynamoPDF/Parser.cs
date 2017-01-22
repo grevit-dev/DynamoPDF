@@ -18,25 +18,29 @@ namespace DynamoPDF
     public static class Parser
     {
         /// <summary>
-        /// Read PDF annotations and return their geometries
+        /// Read PDF annotations into Dynamo
         /// </summary>
         /// <param name="filepath">PDF filepath</param>
-        /// <param name="scale">Conversion factor (scaling)</param>
-        /// <returns>Geometry collection</returns>
-        public static IEnumerable<Geometry> GetGeometries(string filepath, double scale = 1)
+        /// <param name="scale">Scaling factor (optional)</param>
+        /// <param name="page">Document Page (optional)</param>
+        /// <returns>Annotation Objects</returns>
+        public static IEnumerable<AnnotationObject> GetAnnotationsFromPDF(string filepath, double scale = 1, int page = 1)
         {
             if (!System.IO.File.Exists(filepath))
                 throw new Exception(Properties.Resources.FileNotFoundError);
 
-
-            List<Geometry> geometries = new List<Geometry>();
+            List<AnnotationObject> elements = new List<AnnotationObject>();
 
             // Open a new memory stream
             using (var ms = new System.IO.MemoryStream())
             {
                 // Create a new pdf reader and get the first page
                 PdfReader myPdfReader = new PdfReader(filepath);
-                PdfDictionary pageDict = myPdfReader.GetPageN(1);
+
+                if (page < 1 || page > myPdfReader.NumberOfPages)
+                    throw new Exception(Properties.Resources.WrongPageNumber);
+
+                PdfDictionary pageDict = myPdfReader.GetPageN(page);
                 PdfArray annotArray = pageDict.GetAsArray(PdfName.ANNOTS);
 
                 // Walk through the annotation element array
@@ -49,25 +53,42 @@ namespace DynamoPDF
                     {
                         if (subject == PdfName.LINE)
                         {
-                            geometries.Add(annotationElement.ToLine(scale));
+                            elements.Add(annotationElement.ToLine(scale));
                         }
                         else if (subject == PdfName.POLYGON)
                         {
-                            geometries.Add(annotationElement.ToPolyCurve(scale, true));
+                            elements.Add(annotationElement.ToPolyCurve(scale, true));
                         }
                         else if (subject == PdfName.POLYLINE)
                         {
-                            geometries.Add(annotationElement.ToPolyCurve(scale, false));
+                            elements.Add(annotationElement.ToPolyCurve(scale, false));
                         }
                         else if (subject == PdfName.SQUARE)
                         {
-                            geometries.Add(annotationElement.ToRectangle(scale));
+                            elements.Add(annotationElement.ToRectangle(scale));
                         }
                     }
                 }
             }
 
-            return geometries;
+            return elements;
+        }
+
+        /// <summary>
+        /// Get Annotation Object's content (Geometry, Author, etc)
+        /// </summary>
+        /// <param name="annotation">PDF Annotation Object</param>
+        [MultiReturn(new[] { "Author", "Contents", "Modified", "Created", "Geometry" })]
+        public static Dictionary<string, object> GetAnnotation(AnnotationObject annotation)
+        {
+            return new Dictionary<string, object>()
+            {
+                {"Author", annotation.Author},
+                {"Contents", annotation.Contents},
+                {"Modified", annotation.Updated},
+                {"Created", annotation.Created},
+                {"Geometry", annotation.Geometry}
+            };
         }
     }
 

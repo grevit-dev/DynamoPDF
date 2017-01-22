@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="FileNotFoundError" xml:space="preserve">
-    <value>File does not exist</value>
+    <value>File does not exist.</value>
+  </data>
+  <data name="WrongPageNumber" xml:space="preserve">
+    <value>Page must be larger 0 and should not exceed the number of pages available.</value>
   </data>
 </root>

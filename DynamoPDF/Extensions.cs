@@ -32,18 +32,29 @@ namespace DynamoPDF
         }
 
         /// <summary>
+        /// PDFString Date to DateTime
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        [IsVisibleInDynamoLibrary(false)]
+        public static DateTime ToDateTime(this string str)
+        {
+            return PdfDate.Decode(str);
+        }
+
+        /// <summary>
         /// Parse PDF Line
         /// </summary>
         /// <param name="annotation"></param>
         /// <param name="scale"></param>
         /// <returns></returns>
         [IsVisibleInDynamoLibrary(false)]
-        public static Line ToLine(this PdfDictionary annotation, double scale)
+        public static AnnotationObject ToLine(this PdfDictionary annotation, double scale)
         {
             PdfArray data = annotation.GetAsArray(PdfName.L);
             Point start = Point.ByCoordinates(data[0].ToDouble(scale), data[1].ToDouble(scale));
             Point end = Point.ByCoordinates(data[2].ToDouble(scale), data[3].ToDouble(scale));
-            return Line.ByStartPointEndPoint(start, end);
+            return new AnnotationObject(annotation, Line.ByStartPointEndPoint(start, end));
         }
 
         /// <summary>
@@ -53,7 +64,7 @@ namespace DynamoPDF
         /// <param name="scale"></param>
         /// <returns></returns>
         [IsVisibleInDynamoLibrary(false)]
-        public static PolyCurve ToPolyCurve(this PdfDictionary annotation, double scale, bool close)
+        public static AnnotationObject ToPolyCurve(this PdfDictionary annotation, double scale, bool close)
         {
             PdfArray data = annotation.GetAsArray(PdfName.VERTICES);
 
@@ -63,7 +74,7 @@ namespace DynamoPDF
                 points.Add(Point.ByCoordinates(data[j].ToDouble(scale), data[j + 1].ToDouble(scale)));
             }
 
-            return PolyCurve.ByPoints(points, close);
+            return new AnnotationObject(annotation, PolyCurve.ByPoints(points, close));
         }
 
         /// <summary>
@@ -73,7 +84,7 @@ namespace DynamoPDF
         /// <param name="scale"></param>
         /// <returns></returns>
         [IsVisibleInDynamoLibrary(false)]
-        public static Rectangle ToRectangle(this PdfDictionary annotation, double scale)
+        public static AnnotationObject ToRectangle(this PdfDictionary annotation, double scale)
         {
             PdfArray data = annotation.GetAsArray(PdfName.RECT);
 
@@ -83,7 +94,7 @@ namespace DynamoPDF
             points.Add(Point.ByCoordinates(data[2].ToDouble(scale), data[3].ToDouble(scale)));
             points.Add(Point.ByCoordinates(data[2].ToDouble(scale), data[1].ToDouble(scale)));
 
-            return Rectangle.ByCornerPoints(points);
+            return new AnnotationObject(annotation, Rectangle.ByCornerPoints(points));
         }
     }
 

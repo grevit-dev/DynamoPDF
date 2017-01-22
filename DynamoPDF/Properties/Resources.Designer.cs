@@ -61,11 +61,20 @@ namespace DynamoPDF.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to File does not exist.
+        ///   Looks up a localized string similar to File does not exist..
         /// </summary>
         internal static string FileNotFoundError {
             get {
                 return ResourceManager.GetString("FileNotFoundError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page must be larger 0 and should not exceed the number of pages available..
+        /// </summary>
+        internal static string WrongPageNumber {
+            get {
+                return ResourceManager.GetString("WrongPageNumber", resourceCulture);
             }
         }
     }
