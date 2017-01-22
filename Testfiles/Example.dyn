@@ -1,22 +1,42 @@
-<Workspace Version="1.2.1.3083" X="-129.066588614562" Y="150.955040695452" zoom="1.06699033617408" Name="Home" Description="" RunType="Automatic" RunPeriod="1000" HasRunWithoutCrash="True">
+<Workspace Version="1.2.1.3083" X="-129.829478468027" Y="159.608039231302" zoom="0.784766222529979" Name="Home" Description="" RunType="Automatic" RunPeriod="1000" HasRunWithoutCrash="True">
   <NamespaceResolutionMap />
   <Elements>
-    <Dynamo.Graph.Nodes.ZeroTouch.DSFunction guid="d3560f47-01a8-4f6d-9373-369b8ff3200e" type="Dynamo.Graph.Nodes.ZeroTouch.DSFunction" nickname="Parser.GetGeometries" x="624.288895724786" y="-99.0195572824422" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false" isPinned="false" assembly="..\DynamoPDF\bin\Debug\DynamoPDF.dll" function="DynamoPDF.Parser.GetGeometries@string,double">
-      <PortInfo index="0" default="False" />
-      <PortInfo index="1" default="True" />
-    </Dynamo.Graph.Nodes.ZeroTouch.DSFunction>
-    <CoreNodeModels.Input.Filename guid="e2e87792-a121-4727-a021-8052827c44bb" type="CoreNodeModels.Input.Filename" nickname="File Path" x="319.41901472423" y="-97.0195572824422" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false">
+    <CoreNodeModels.Input.Filename guid="e2e87792-a121-4727-a021-8052827c44bb" type="CoreNodeModels.Input.Filename" nickname="File Path" x="312.835573234098" y="-141.332881559793" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false">
       <System.String>C:\Users\MThumfart\Documents\GitHub\DynamoPDF\Testfiles\Document1.pdf</System.String>
       <HintPath>C:\Users\MThumfart\Documents\GitHub\DynamoPDF\Testfiles\Document1.pdf</HintPath>
     </CoreNodeModels.Input.Filename>
+    <Dynamo.Graph.Nodes.ZeroTouch.DSFunction guid="39aaa23e-28ec-486b-b795-7486cb138860" type="Dynamo.Graph.Nodes.ZeroTouch.DSFunction" nickname="Parser.GetAnnotationsFromPDF" x="605.365467837783" y="-143.400202031936" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false" isPinned="false" assembly="..\DynamoPDF\bin\Debug\DynamoPDF.dll" function="DynamoPDF.Parser.GetAnnotationsFromPDF@string,double,int">
+      <PortInfo index="0" default="False" />
+      <PortInfo index="1" default="True" />
+      <PortInfo index="2" default="True" />
+    </Dynamo.Graph.Nodes.ZeroTouch.DSFunction>
+    <Dynamo.Graph.Nodes.ZeroTouch.DSFunction guid="e873dee3-6b1c-4b56-9f75-8a712fd766ab" type="Dynamo.Graph.Nodes.ZeroTouch.DSFunction" nickname="Parser.GetAnnotation" x="848.400377441408" y="-142.600919110078" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false" isPinned="false" assembly="..\DynamoPDF\bin\Debug\DynamoPDF.dll" function="DynamoPDF.Parser.GetAnnotation@var">
+      <PortInfo index="0" default="False" />
+    </Dynamo.Graph.Nodes.ZeroTouch.DSFunction>
+    <CoreNodeModels.Watch guid="ba01465e-58a3-459d-afb7-ec0be45d4b6d" type="CoreNodeModels.Watch" nickname="Watch" x="1209.32074091579" y="-155.586793688752" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false">
+      <PortInfo index="0" default="False" />
+    </CoreNodeModels.Watch>
+    <Dynamo.Graph.Nodes.ZeroTouch.DSFunction guid="9c2bae94-21a0-499f-88f2-411d14e7eff6" type="Dynamo.Graph.Nodes.ZeroTouch.DSFunction" nickname="Curve.ExtrudeAsSolid" x="1411.72833465047" y="125.654360505865" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false" isPinned="false" assembly="ProtoGeometry.dll" function="Autodesk.DesignScript.Geometry.Curve.ExtrudeAsSolid@double">
+      <PortInfo index="0" default="False" />
+      <PortInfo index="1" default="True" />
+    </Dynamo.Graph.Nodes.ZeroTouch.DSFunction>
+    <Dynamo.Graph.Nodes.CodeBlockNodeModel guid="70c22a92-fd15-4420-8b74-74861eecd042" type="Dynamo.Graph.Nodes.CodeBlockNodeModel" nickname="Code Block" x="1286.07913843669" y="198.687964559819" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false" CodeText="-200;" ShouldFocus="false" />
+    <Dynamo.Graph.Nodes.ZeroTouch.DSFunction guid="89ec69b1-14d1-4774-bc63-d0c5b66d5301" type="Dynamo.Graph.Nodes.ZeroTouch.DSFunction" nickname="List.FirstItem" x="1204.29643912895" y="106.59690394486" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false" isPinned="false" assembly="DSCoreNodes.dll" function="DSCore.List.FirstItem@var[]..[]">
+      <PortInfo index="0" default="False" />
+    </Dynamo.Graph.Nodes.ZeroTouch.DSFunction>
   </Elements>
   <Connectors>
-    <Dynamo.Graph.Connectors.ConnectorModel start="e2e87792-a121-4727-a021-8052827c44bb" start_index="0" end="d3560f47-01a8-4f6d-9373-369b8ff3200e" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="e2e87792-a121-4727-a021-8052827c44bb" start_index="0" end="39aaa23e-28ec-486b-b795-7486cb138860" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="39aaa23e-28ec-486b-b795-7486cb138860" start_index="0" end="e873dee3-6b1c-4b56-9f75-8a712fd766ab" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="e873dee3-6b1c-4b56-9f75-8a712fd766ab" start_index="2" end="ba01465e-58a3-459d-afb7-ec0be45d4b6d" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="e873dee3-6b1c-4b56-9f75-8a712fd766ab" start_index="4" end="89ec69b1-14d1-4774-bc63-d0c5b66d5301" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="70c22a92-fd15-4420-8b74-74861eecd042" start_index="0" end="9c2bae94-21a0-499f-88f2-411d14e7eff6" end_index="1" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="89ec69b1-14d1-4774-bc63-d0c5b66d5301" start_index="0" end="9c2bae94-21a0-499f-88f2-411d14e7eff6" end_index="0" portType="0" />
   </Connectors>
   <Notes />
   <Annotations />
   <Presets />
   <Cameras>
-    <Camera Name="Background Preview" eyeX="206.605408906941" eyeY="638.41684330593" eyeZ="-306.496434067825" lookX="47.8031680583913" lookY="-638.41684330593" lookZ="-295.493052626511" upX="0.126696964605934" upY="0.608761429008723" upZ="-0.783171374419995" />
+    <Camera Name="Background Preview" eyeX="275.399172953504" eyeY="610.303670567306" eyeZ="-352.55362370123" lookX="45.9817429378871" lookY="-596.162561230591" lookZ="-269.305114247581" upX="0.134415531007867" upY="0.601815024098656" upZ="-0.78724272754394" />
   </Cameras>
 </Workspace>
