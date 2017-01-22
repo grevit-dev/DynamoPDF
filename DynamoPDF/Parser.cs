@@ -23,7 +23,7 @@ namespace DynamoPDF
         /// <param name="filepath">PDF filepath</param>
         /// <param name="scale">Conversion factor (scaling)</param>
         /// <returns>Geometry collection</returns>
-        public static IEnumerable<Geometry> GetGeometries(string filepath, double scale = 0)
+        public static IEnumerable<Geometry> GetGeometries(string filepath, double scale = 1)
         {
             if (!System.IO.File.Exists(filepath))
                 throw new Exception(Properties.Resources.FileNotFoundError);
@@ -58,6 +58,10 @@ namespace DynamoPDF
                         else if (subject == PdfName.POLYLINE)
                         {
                             geometries.Add(annotationElement.ToPolyCurve(scale, false));
+                        }
+                        else if (subject == PdfName.SQUARE)
+                        {
+                            geometries.Add(annotationElement.ToRectangle(scale));
                         }
                     }
                 }

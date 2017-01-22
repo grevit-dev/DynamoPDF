@@ -58,12 +58,32 @@ namespace DynamoPDF
             PdfArray data = annotation.GetAsArray(PdfName.VERTICES);
 
             List<Point> points = new List<Point>();
-            for (int j = 0; j < data.Size - 1; j++)
+            for (int j = 0; j < data.Size - 1; j=j+2)
             {
                 points.Add(Point.ByCoordinates(data[j].ToDouble(scale), data[j + 1].ToDouble(scale)));
             }
 
             return PolyCurve.ByPoints(points, close);
+        }
+
+        /// <summary>
+        /// Parse PDF Rectangle to Rectangle
+        /// </summary>
+        /// <param name="annotation"></param>
+        /// <param name="scale"></param>
+        /// <returns></returns>
+        [IsVisibleInDynamoLibrary(false)]
+        public static Rectangle ToRectangle(this PdfDictionary annotation, double scale)
+        {
+            PdfArray data = annotation.GetAsArray(PdfName.RECT);
+
+            List<Point> points = new List<Point>();
+            points.Add(Point.ByCoordinates(data[0].ToDouble(scale), data[1].ToDouble(scale)));
+            points.Add(Point.ByCoordinates(data[0].ToDouble(scale), data[3].ToDouble(scale)));
+            points.Add(Point.ByCoordinates(data[2].ToDouble(scale), data[3].ToDouble(scale)));
+            points.Add(Point.ByCoordinates(data[2].ToDouble(scale), data[1].ToDouble(scale)));
+
+            return Rectangle.ByCornerPoints(points);
         }
     }
 
