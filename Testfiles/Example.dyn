@@ -1,0 +1,22 @@
+<Workspace Version="1.2.1.3083" X="-129.066588614562" Y="150.955040695452" zoom="1.06699033617408" Name="Home" Description="" RunType="Automatic" RunPeriod="1000" HasRunWithoutCrash="True">
+  <NamespaceResolutionMap />
+  <Elements>
+    <Dynamo.Graph.Nodes.ZeroTouch.DSFunction guid="d3560f47-01a8-4f6d-9373-369b8ff3200e" type="Dynamo.Graph.Nodes.ZeroTouch.DSFunction" nickname="Parser.GetGeometries" x="624.288895724786" y="-99.0195572824422" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false" isPinned="false" assembly="..\DynamoPDF\bin\Debug\DynamoPDF.dll" function="DynamoPDF.Parser.GetGeometries@string,double">
+      <PortInfo index="0" default="False" />
+      <PortInfo index="1" default="True" />
+    </Dynamo.Graph.Nodes.ZeroTouch.DSFunction>
+    <CoreNodeModels.Input.Filename guid="e2e87792-a121-4727-a021-8052827c44bb" type="CoreNodeModels.Input.Filename" nickname="File Path" x="319.41901472423" y="-97.0195572824422" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false">
+      <System.String>C:\Users\MThumfart\Documents\GitHub\DynamoPDF\Testfiles\Document1.pdf</System.String>
+      <HintPath>C:\Users\MThumfart\Documents\GitHub\DynamoPDF\Testfiles\Document1.pdf</HintPath>
+    </CoreNodeModels.Input.Filename>
+  </Elements>
+  <Connectors>
+    <Dynamo.Graph.Connectors.ConnectorModel start="e2e87792-a121-4727-a021-8052827c44bb" start_index="0" end="d3560f47-01a8-4f6d-9373-369b8ff3200e" end_index="0" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations />
+  <Presets />
+  <Cameras>
+    <Camera Name="Background Preview" eyeX="206.605408906941" eyeY="638.41684330593" eyeZ="-306.496434067825" lookX="47.8031680583913" lookY="-638.41684330593" lookZ="-295.493052626511" upX="0.126696964605934" upY="0.608761429008723" upZ="-0.783171374419995" />
+  </Cameras>
+</Workspace>
