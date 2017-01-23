@@ -74,6 +74,9 @@ namespace DynamoPDF
                 points.Add(Point.ByCoordinates(data[j].ToDouble(scale), data[j + 1].ToDouble(scale)));
             }
 
+            if (points.First().IsAlmostEqualTo(points.Last()))
+                points.RemoveAt(points.Count - 1);
+
             return new AnnotationObject(annotation, PolyCurve.ByPoints(points, close));
         }
 
@@ -96,6 +99,7 @@ namespace DynamoPDF
 
             return new AnnotationObject(annotation, Rectangle.ByCornerPoints(points));
         }
+
     }
 
 }
