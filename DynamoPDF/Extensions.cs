@@ -52,6 +52,8 @@ namespace DynamoPDF
         public static AnnotationObject ToLine(this PdfDictionary annotation, double scale)
         {
             PdfArray data = annotation.GetAsArray(PdfName.L);
+            if (data == null) return null;
+
             Point start = Point.ByCoordinates(data[0].ToDouble(scale), data[1].ToDouble(scale));
             Point end = Point.ByCoordinates(data[2].ToDouble(scale), data[3].ToDouble(scale));
             return new AnnotationObject(annotation, Line.ByStartPointEndPoint(start, end));
@@ -67,6 +69,7 @@ namespace DynamoPDF
         public static AnnotationObject ToPolyCurve(this PdfDictionary annotation, double scale, bool close)
         {
             PdfArray data = annotation.GetAsArray(PdfName.VERTICES);
+            if (data == null) return null;
 
             List<Point> points = new List<Point>();
             for (int j = 0; j < data.Size - 1; j=j+2)
@@ -90,6 +93,7 @@ namespace DynamoPDF
         public static AnnotationObject ToRectangle(this PdfDictionary annotation, double scale)
         {
             PdfArray data = annotation.GetAsArray(PdfName.RECT);
+            if (data == null) return null;
 
             List<Point> points = new List<Point>();
             points.Add(Point.ByCoordinates(data[0].ToDouble(scale), data[1].ToDouble(scale)));
