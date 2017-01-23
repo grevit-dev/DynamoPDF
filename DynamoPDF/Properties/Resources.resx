@@ -120,6 +120,9 @@
   <data name="FileNotFoundError" xml:space="preserve">
     <value>File does not exist.</value>
   </data>
+  <data name="NoAnnotations" xml:space="preserve">
+    <value>The selected page does not contain any annotations.</value>
+  </data>
   <data name="WrongPageNumber" xml:space="preserve">
     <value>Page must be larger 0 and should not exceed the number of pages available.</value>
   </data>

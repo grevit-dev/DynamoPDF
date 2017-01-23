@@ -70,6 +70,15 @@ namespace DynamoPDF.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The selected page does not contain any annotations..
+        /// </summary>
+        internal static string NoAnnotations {
+            get {
+                return ResourceManager.GetString("NoAnnotations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Page must be larger 0 and should not exceed the number of pages available..
         /// </summary>
         internal static string WrongPageNumber {
