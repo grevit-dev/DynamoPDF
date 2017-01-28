@@ -16,21 +16,23 @@ namespace DynamoPDF
     /// <summary>
     /// PDF Parser for Dynamo
     /// </summary>
-    public static class Parser
+    public static class Read
     {
         /// <summary>
         /// Read PDF annotations into Dynamo
         /// </summary>
         /// <param name="filepath">PDF filepath</param>
-        /// <param name="scale">Scaling factor (optional)</param>
         /// <param name="page">Document Page number (optional)</param>
         /// <returns>Annotation Objects</returns>
-        public static IEnumerable<AnnotationObject> GetAnnotationsFromPDF(string filepath, double scale = 1, int page = 1)
+        [MultiReturn(new string[]{ "Annotations", "Rectangle" })]
+        public static Dictionary<string,object> GetAnnotationsFromPDF(string filepath, int page = 1)
         {
             if (!System.IO.File.Exists(filepath))
                 throw new Exception(Properties.Resources.FileNotFoundError);
 
-            List<AnnotationObject> elements = new List<AnnotationObject>();
+            List<Content.Annotation> elements = new List<Content.Annotation>();
+
+            Rectangle pagesize = null;
 
             // Open a new memory stream
             using (var ms = new System.IO.MemoryStream())
@@ -43,6 +45,7 @@ namespace DynamoPDF
 
                 PdfDictionary pageDict = myPdfReader.GetPageN(page);
                 PdfArray annotArray = pageDict.GetAsArray(PdfName.ANNOTS);
+                pagesize = myPdfReader.GetPageSizeWithRotation(page).ToDSRectangle();
 
                 if (annotArray == null) throw new Exception(Properties.Resources.NoAnnotations);
 
@@ -51,45 +54,53 @@ namespace DynamoPDF
                 {
                     // Get the elements type and subject to filter by
                     PdfDictionary annotationElement = annotArray.GetAsDict(i);
-                    PdfName subject = annotationElement.GetAsName(PdfName.SUBTYPE);
-                    if (subject != null)
+                    PdfName subtype = annotationElement.GetAsName(PdfName.SUBTYPE);
+                    if (subtype != null)
                     {
-                        if (subject == PdfName.LINE)
+                        if (subtype == PdfName.LINE)
                         {
-                            elements.Add(annotationElement.ToLine(scale));
+                            elements.Add(annotationElement.ToLine());
                         }
-                        else if (subject == PdfName.POLYGON)
+                        else if (subtype == PdfName.POLYGON)
                         {
-                            elements.Add(annotationElement.ToPolyCurve(scale, true));
+                            elements.Add(annotationElement.ToPolyCurve( true));
                         }
-                        else if (subject == PdfName.POLYLINE)
+                        else if (subtype == PdfName.POLYLINE)
                         {
-                            elements.Add(annotationElement.ToPolyCurve(scale, false));
+                            elements.Add(annotationElement.ToPolyCurve( false));
                         }
-                        else if (subject == PdfName.SQUARE)
+                        else if (subtype == PdfName.SQUARE)
                         {
-                            elements.Add(annotationElement.ToRectangle(scale));
+                            elements.Add(annotationElement.ToRectangle());
                         }
-                        else if (subject == PdfName.FREETEXT)
+                        else if (subtype == PdfName.FREETEXT)
                         {
-                            elements.Add(annotationElement.ToRectangle(scale));
+                            elements.Add(annotationElement.ToRectangle());
+                        }
+                        else if (subtype == PdfName.CIRCLE)
+                        {
+                            elements.Add(annotationElement.ToCircle());
                         }
                     }
                 }
-                
+
                 string content = PdfTextExtractor.GetTextFromPage(myPdfReader, page, new SimpleTextExtractionStrategy());
             }
 
-            return elements;
+            return new Dictionary<string,object>()
+            {
+                {"Annotations", elements},
+                {"Rectangle", pagesize}
+            };
         }
 
         /// <summary>
-        /// Get Text from PDF
+        /// Get Text from PDF page
         /// </summary>
         /// <param name="filepath">PDF Filepath</param>
         /// <param name="page">Document Page number (optional)</param>
         /// <returns>Page Content as Text</returns>
-        public static string GetTextFromPDF(string filepath, int page = 1)
+        public static string GetPDFPageAsText(string filepath, int page = 1)
         {
             if (!System.IO.File.Exists(filepath))
                 throw new Exception(Properties.Resources.FileNotFoundError);
@@ -104,29 +115,47 @@ namespace DynamoPDF
 
                 if (page < 1 || page > myPdfReader.NumberOfPages)
                     throw new Exception(Properties.Resources.WrongPageNumber);
-
-                content = PdfTextExtractor.GetTextFromPage(myPdfReader, page, new SimpleTextExtractionStrategy());
+                
+                string nonformatcontent = PdfTextExtractor.GetTextFromPage(myPdfReader, page, new SimpleTextExtractionStrategy());
+                content = Encoding.UTF8.GetString(ASCIIEncoding.Convert(Encoding.Default, Encoding.UTF8, Encoding.Default.GetBytes(nonformatcontent)));
             }
 
             return content;
         }
 
         /// <summary>
-        /// Get Annotation Object's content (Geometry, Author, etc)
+        /// Get all Text from PDF
         /// </summary>
-        /// <param name="annotation">PDF Annotation Object</param>
-        [MultiReturn(new[] { "Author", "Contents", "Modified", "Created", "Geometry" })]
-        public static Dictionary<string, object> GetAnnotation(AnnotationObject annotation)
+        /// <param name="filepath"></param>
+        /// <returns></returns>
+        public static string GetEntirePDFAsText(string filepath)
         {
-            return new Dictionary<string, object>()
+            if (!System.IO.File.Exists(filepath))
+                throw new Exception(Properties.Resources.FileNotFoundError);
+
+            string content = string.Empty;
+
+            // Open a new memory stream
+            using (var ms = new System.IO.MemoryStream())
             {
-                {"Author", annotation.Author},
-                {"Contents", annotation.Contents},
-                {"Modified", annotation.Updated},
-                {"Created", annotation.Created},
-                {"Geometry", annotation.Geometry}
-            };
+                // Create a new pdf reader and get the first page
+                PdfReader myPdfReader = new PdfReader(filepath);
+
+                for (int i = 1; i <= myPdfReader.NumberOfPages; i++)
+                {
+                    string nonformatcontent = PdfTextExtractor.GetTextFromPage(myPdfReader, i, new SimpleTextExtractionStrategy());
+                    string pagebreak = (i > 1) ? "\n" : "";
+
+                    content += pagebreak + Encoding.UTF8.GetString(ASCIIEncoding.Convert(Encoding.Default, Encoding.UTF8, Encoding.Default.GetBytes(nonformatcontent)));
+                }
+            }
+
+            return content;
         }
+
+
     }
 
 }
+
+	

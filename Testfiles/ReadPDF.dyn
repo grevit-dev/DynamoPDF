@@ -1,0 +1,88 @@
+<Workspace Version="1.2.1.3083" X="96.1206659168793" Y="162.607003824458" zoom="0.562026370313674" Name="Home" Description="" RunType="Automatic" RunPeriod="1000" HasRunWithoutCrash="True">
+  <NamespaceResolutionMap />
+  <Elements>
+    <Dynamo.Graph.Nodes.ZeroTouch.DSFunction guid="74bf1889-4505-420e-90e3-803ef34210c0" type="Dynamo.Graph.Nodes.ZeroTouch.DSFunction" nickname="Read.GetAnnotationsFromPDF" x="324.752205180228" y="-32.9940738468489" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false" isPinned="false" assembly="..\DynamoPDF\bin\Debug\DynamoPDF.dll" function="DynamoPDF.Read.GetAnnotationsFromPDF@string,int">
+      <PortInfo index="0" default="False" />
+      <PortInfo index="1" default="True" />
+    </Dynamo.Graph.Nodes.ZeroTouch.DSFunction>
+    <CoreNodeModels.Input.Filename guid="13ae751f-3f96-42f7-a652-5cc8201d31b1" type="CoreNodeModels.Input.Filename" nickname="File Path" x="-66.5839642985192" y="228.73859568525" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false">
+      <System.String>C:\Users\MThumfart\Documents\GitHub\DynamoPDF\Testfiles\Document1.pdf</System.String>
+      <HintPath>C:\Users\MThumfart\Documents\GitHub\DynamoPDF\Testfiles\Document1.pdf</HintPath>
+    </CoreNodeModels.Input.Filename>
+    <Dynamo.Graph.Nodes.ZeroTouch.DSFunction guid="99dd02a9-aebe-42e3-b152-056dbf4ade8a" type="Dynamo.Graph.Nodes.ZeroTouch.DSFunction" nickname="Read.GetPDFPageAsText" x="676.573055438319" y="417.93971474322" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false" isPinned="false" assembly="..\DynamoPDF\bin\Debug\DynamoPDF.dll" function="DynamoPDF.Read.GetPDFPageAsText@string,int">
+      <PortInfo index="0" default="False" />
+      <PortInfo index="1" default="True" />
+    </Dynamo.Graph.Nodes.ZeroTouch.DSFunction>
+    <Dynamo.Graph.Nodes.ZeroTouch.DSFunction guid="b2a6a53c-521f-4525-af2b-00a128a91de9" type="Dynamo.Graph.Nodes.ZeroTouch.DSFunction" nickname="Read.GetEntirePDFAsText" x="676.573055438319" y="549.566662579379" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false" isPinned="false" assembly="..\DynamoPDF\bin\Debug\DynamoPDF.dll" function="DynamoPDF.Read.GetEntirePDFAsText@string">
+      <PortInfo index="0" default="False" />
+    </Dynamo.Graph.Nodes.ZeroTouch.DSFunction>
+    <CoreNodeModels.Watch guid="5285a452-a398-4a08-9514-a775f87573c3" type="CoreNodeModels.Watch" nickname="Watch" x="904.5718940994" y="419.386164719442" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false">
+      <PortInfo index="0" default="False" />
+    </CoreNodeModels.Watch>
+    <CoreNodeModels.Watch guid="5484c108-8cd9-4158-b2f0-1057888615a2" type="CoreNodeModels.Watch" nickname="Watch" x="903.873945787672" y="544.977012983613" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false">
+      <PortInfo index="0" default="False" />
+    </CoreNodeModels.Watch>
+    <CoreNodeModels.Watch guid="f3eb4b59-91a2-410d-a709-ba3d9155e998" type="CoreNodeModels.Watch" nickname="Watch" x="1182.87983574271" y="25.4755899283304" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false">
+      <PortInfo index="0" default="False" />
+    </CoreNodeModels.Watch>
+    <Dynamo.Graph.Nodes.ZeroTouch.DSFunction guid="c8fd4089-d235-4a04-af76-7a08cee9e8f7" type="Dynamo.Graph.Nodes.ZeroTouch.DSFunction" nickname="Annotation.GetColor" x="675.502739587647" y="-61.4009913099663" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false" isPinned="false" assembly="..\DynamoPDF\bin\Debug\DynamoPDF.dll" function="DynamoPDF.Content.Annotation.GetColor">
+      <PortInfo index="0" default="False" />
+    </Dynamo.Graph.Nodes.ZeroTouch.DSFunction>
+    <Dynamo.Graph.Nodes.ZeroTouch.DSFunction guid="71b05bb0-aecb-47c2-b62e-b58b07254bd8" type="Dynamo.Graph.Nodes.ZeroTouch.DSFunction" nickname="Annotation.GetGeometry" x="676.650311353709" y="-149.98441931319" isVisible="false" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false" isPinned="false" assembly="..\DynamoPDF\bin\Debug\DynamoPDF.dll" function="DynamoPDF.Content.Annotation.GetGeometry">
+      <PortInfo index="0" default="False" />
+    </Dynamo.Graph.Nodes.ZeroTouch.DSFunction>
+    <Dynamo.Graph.Nodes.ZeroTouch.DSFunction guid="33a1cc45-4646-4b67-a0eb-3f4845d0a901" type="Dynamo.Graph.Nodes.ZeroTouch.DSFunction" nickname="Display.ByGeometryColor" x="996.35630428031" y="-132.789819073641" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false" isPinned="false" assembly="Display.dll" function="Display.Display.ByGeometryColor@Autodesk.DesignScript.Geometry.Geometry,DSCore.Color">
+      <PortInfo index="0" default="False" />
+      <PortInfo index="1" default="False" />
+    </Dynamo.Graph.Nodes.ZeroTouch.DSFunction>
+    <Dynamo.Graph.Nodes.ZeroTouch.DSFunction guid="5aa4959a-100b-45e6-b7b1-82555e88432d" type="Dynamo.Graph.Nodes.ZeroTouch.DSFunction" nickname="Annotation.GetCreated" x="680.628854497477" y="111.753008079892" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false" isPinned="false" assembly="..\DynamoPDF\bin\Debug\DynamoPDF.dll" function="DynamoPDF.Content.Annotation.GetCreated">
+      <PortInfo index="0" default="False" />
+    </Dynamo.Graph.Nodes.ZeroTouch.DSFunction>
+    <Dynamo.Graph.Nodes.ZeroTouch.DSFunction guid="e95b7dfb-9c7f-4102-84a4-97ff78e3e4fa" type="Dynamo.Graph.Nodes.ZeroTouch.DSFunction" nickname="Annotation.GetSubject" x="676.850420275313" y="24.8490209701289" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false" isPinned="false" assembly="..\DynamoPDF\bin\Debug\DynamoPDF.dll" function="DynamoPDF.Content.Annotation.GetSubject">
+      <PortInfo index="0" default="False" />
+    </Dynamo.Graph.Nodes.ZeroTouch.DSFunction>
+    <CoreNodeModels.Watch guid="8ce8456b-0e2b-478e-819e-e30729810001" type="CoreNodeModels.Watch" nickname="Watch" x="903.294593088351" y="110.845012459336" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false">
+      <PortInfo index="0" default="False" />
+    </CoreNodeModels.Watch>
+  </Elements>
+  <Connectors>
+    <Dynamo.Graph.Connectors.ConnectorModel start="74bf1889-4505-420e-90e3-803ef34210c0" start_index="0" end="71b05bb0-aecb-47c2-b62e-b58b07254bd8" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="74bf1889-4505-420e-90e3-803ef34210c0" start_index="0" end="c8fd4089-d235-4a04-af76-7a08cee9e8f7" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="74bf1889-4505-420e-90e3-803ef34210c0" start_index="0" end="e95b7dfb-9c7f-4102-84a4-97ff78e3e4fa" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="74bf1889-4505-420e-90e3-803ef34210c0" start_index="0" end="5aa4959a-100b-45e6-b7b1-82555e88432d" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="13ae751f-3f96-42f7-a652-5cc8201d31b1" start_index="0" end="99dd02a9-aebe-42e3-b152-056dbf4ade8a" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="13ae751f-3f96-42f7-a652-5cc8201d31b1" start_index="0" end="b2a6a53c-521f-4525-af2b-00a128a91de9" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="13ae751f-3f96-42f7-a652-5cc8201d31b1" start_index="0" end="74bf1889-4505-420e-90e3-803ef34210c0" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="99dd02a9-aebe-42e3-b152-056dbf4ade8a" start_index="0" end="5285a452-a398-4a08-9514-a775f87573c3" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="b2a6a53c-521f-4525-af2b-00a128a91de9" start_index="0" end="5484c108-8cd9-4158-b2f0-1057888615a2" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="c8fd4089-d235-4a04-af76-7a08cee9e8f7" start_index="0" end="33a1cc45-4646-4b67-a0eb-3f4845d0a901" end_index="1" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="71b05bb0-aecb-47c2-b62e-b58b07254bd8" start_index="0" end="33a1cc45-4646-4b67-a0eb-3f4845d0a901" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="5aa4959a-100b-45e6-b7b1-82555e88432d" start_index="0" end="8ce8456b-0e2b-478e-819e-e30729810001" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="e95b7dfb-9c7f-4102-84a4-97ff78e3e4fa" start_index="0" end="f3eb4b59-91a2-410d-a709-ba3d9155e998" end_index="0" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations>
+    <Dynamo.Graph.Annotations.AnnotationModel guid="4f0c2908-6db2-4a03-ad9c-a331578b164a" annotationText="Properties&#xD;&#xA;" left="665.502739587647" top="-193.98441931319" width="609.377096155063" height="543.829431772526" fontSize="14" InitialTop="-149.98441931319" InitialHeight="529.829431772526" TextblockHeight="34" backgrouund="#FFC1D676">
+      <Models ModelGuid="f3eb4b59-91a2-410d-a709-ba3d9155e998" />
+      <Models ModelGuid="c8fd4089-d235-4a04-af76-7a08cee9e8f7" />
+      <Models ModelGuid="71b05bb0-aecb-47c2-b62e-b58b07254bd8" />
+      <Models ModelGuid="33a1cc45-4646-4b67-a0eb-3f4845d0a901" />
+      <Models ModelGuid="5aa4959a-100b-45e6-b7b1-82555e88432d" />
+      <Models ModelGuid="e95b7dfb-9c7f-4102-84a4-97ff78e3e4fa" />
+      <Models ModelGuid="8ce8456b-0e2b-478e-819e-e30729810001" />
+    </Dynamo.Graph.Annotations.AnnotationModel>
+    <Dynamo.Graph.Annotations.AnnotationModel guid="9f5535be-b1ab-4137-a16e-5714f00c505c" annotationText="Get Text" left="666.573055438319" top="387.93971474322" width="329.998838661081" height="254.626947836159" fontSize="14" InitialTop="417.93971474322" InitialHeight="254.626947836159" TextblockHeight="20" backgrouund="#FFC1D676">
+      <Models ModelGuid="99dd02a9-aebe-42e3-b152-056dbf4ade8a" />
+      <Models ModelGuid="b2a6a53c-521f-4525-af2b-00a128a91de9" />
+      <Models ModelGuid="5285a452-a398-4a08-9514-a775f87573c3" />
+      <Models ModelGuid="5484c108-8cd9-4158-b2f0-1057888615a2" />
+    </Dynamo.Graph.Annotations.AnnotationModel>
+    <Dynamo.Graph.Annotations.AnnotationModel guid="b628cbe6-08c0-4626-b257-489f171ce3e7" annotationText="Select PDF" left="-76.5839642985192" top="198.73859568525" width="273" height="124" fontSize="14" InitialTop="228.73859568525" InitialHeight="124" TextblockHeight="20" backgrouund="#FFC1D676">
+      <Models ModelGuid="13ae751f-3f96-42f7-a652-5cc8201d31b1" />
+    </Dynamo.Graph.Annotations.AnnotationModel>
+  </Annotations>
+  <Presets />
+  <Cameras>
+    <Camera Name="Background Preview" eyeX="-361.658294677734" eyeY="1150.84130859375" eyeZ="-140.544982910156" lookX="-6.79737043380737" lookY="-1009.21807861328" lookZ="-90.1782760620117" upX="-0.0716849341988564" upY="0.300705790519714" upZ="-0.951019048690796" />
+  </Cameras>
+</Workspace>

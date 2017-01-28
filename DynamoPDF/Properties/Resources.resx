@@ -123,6 +123,12 @@
   <data name="NoAnnotations" xml:space="preserve">
     <value>The selected page does not contain any annotations.</value>
   </data>
+  <data name="NoGeometry" xml:space="preserve">
+    <value>No valid geometry input found.</value>
+  </data>
+  <data name="NotSupported" xml:space="preserve">
+    <value>This type of geometry is currently not supported.</value>
+  </data>
   <data name="WrongPageNumber" xml:space="preserve">
     <value>Page must be larger 0 and should not exceed the number of pages available.</value>
   </data>

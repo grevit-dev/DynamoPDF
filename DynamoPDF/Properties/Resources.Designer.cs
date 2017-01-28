@@ -79,6 +79,24 @@ namespace DynamoPDF.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No valid geometry input found..
+        /// </summary>
+        internal static string NoGeometry {
+            get {
+                return ResourceManager.GetString("NoGeometry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This type of geometry is currently not supported..
+        /// </summary>
+        internal static string NotSupported {
+            get {
+                return ResourceManager.GetString("NotSupported", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Page must be larger 0 and should not exceed the number of pages available..
         /// </summary>
         internal static string WrongPageNumber {

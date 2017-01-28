@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\DynamoPDF.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DSCoreNodes">
+      <HintPath>..\..\Dynamo\bin\AnyCPU\Debug\DSCoreNodes.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="DynamoCore">
       <HintPath>..\..\Dynamo\bin\AnyCPU\Debug\DynamoCore.dll</HintPath>
       <Private>False</Private>
@@ -55,6 +60,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -62,15 +68,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnnotationObject.cs" />
-    <Compile Include="Extensions.cs" />
-    <Compile Include="Parser.cs" />
+    <Compile Include="Content\Annotation.cs" />
+    <Compile Include="Content\Font.cs" />
+    <Compile Include="Content\Chapter.cs" />
+    <Compile Include="Content\Page.cs" />
+    <Compile Include="Content\Image.cs" />
+    <Compile Include="Content\PageBreak.cs" />
+    <Compile Include="Content\Phrase.cs" />
+    <Compile Include="Content\ListItem.cs" />
+    <Compile Include="Content\List.cs" />
+    <Compile Include="Content\PDFContent.cs" />
+    <Compile Include="Content\Color.cs" />
+    <Compile Include="Extensions\AnnotationsFromPDF.cs" />
+    <Compile Include="Content\Paragraph.cs" />
+    <Compile Include="Geometries\PrintSettings.cs" />
+    <Compile Include="Geometries\PDFGeometry.cs" />
+    <Compile Include="Read.cs" />
+    <Compile Include="Generic\PDFCoords.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Extensions\AnnotationsToPDF.cs" />
+    <Compile Include="Write.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
