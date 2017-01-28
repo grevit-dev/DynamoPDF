@@ -29,21 +29,27 @@ namespace DynamoPDF.Content
             Color = color;
         }
 
-        private Page(Autodesk.DesignScript.Geometry.Rectangle pagesize, DSCore.Color color)
+        private Page(double width, double height, DSCore.Color color)
         {
-            Rectangle = new iTextSharp.text.Rectangle((float)Rectangle.Width, (float)Rectangle.Height);
+            Rectangle = new iTextSharp.text.Rectangle((float)width, (float)height);
             Color = color;
         }
 
         /// <summary>
-        /// Create a new Page by Rectangle
+        /// Create a new Page by width and height
         /// </summary>
-        /// <param name="pagesize"></param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
         /// <param name="color"></param>
         /// <returns></returns>
-        public static Page PageByRectangle(Autodesk.DesignScript.Geometry.Rectangle pagesize, DSCore.Color color)
+        [MultiReturn(new string[] { "Page", "Rectangle" })]
+        public static Dictionary<string, object> PageByWidthHeight(double width, double height, DSCore.Color color)
         {
-            return new Page(pagesize, color);
+            Page p = new Page(width,height, color);
+            return new Dictionary<string, object>(){
+             { "Page", p },
+             { "Rectangle", p.Rectangle.ToDSRectangle() }
+            };
         }
 
         /// <summary>
