@@ -87,6 +87,11 @@ namespace DynamoPDF.Geometries
                 foreach (var linearc in nc.ApproximateWithArcAndLineSegments())
                     CurveToPDF(linearc, cb);
             }
+            else if (Geometry.GetType() == typeof(Dyn.Curve))
+            {
+                Dyn.Curve curve = Geometry as Dyn.Curve;
+                CurveToPDF(curve,cb);
+            }
             else {
                 throw new Exception(Properties.Resources.NotSupported);
             }
@@ -118,16 +123,21 @@ namespace DynamoPDF.Geometries
                 cb.MoveTo(line.StartPoint.X, line.StartPoint.Y);
                 cb.LineTo(line.EndPoint.X, line.EndPoint.Y);
             }
-            if (Geometry.GetType() == typeof(Dyn.Arc))
+            else if (Geometry.GetType() == typeof(Dyn.Arc))
             {
                 Dyn.Arc arc = Geometry as Dyn.Arc;
                 cb.Arc(arc.StartPoint.X, arc.StartPoint.Y, arc.EndPoint.X, arc.EndPoint.Y, arc.StartAngle, 0);
             }
-            if (Geometry.GetType() == typeof(Dyn.NurbsCurve))
+            else if (Geometry.GetType() == typeof(Dyn.NurbsCurve))
             {
                 Dyn.NurbsCurve nc = Geometry as Dyn.NurbsCurve;
                 foreach (var linearc in nc.ApproximateWithArcAndLineSegments())
                     CurveToPDF(linearc,cb);
+            }
+            else
+            {
+                cb.MoveTo(curve.StartPoint.X, curve.StartPoint.Y);
+                cb.LineTo(curve.EndPoint.X, curve.EndPoint.Y);
             }
         }
 
