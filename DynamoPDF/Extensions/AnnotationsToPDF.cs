@@ -88,7 +88,7 @@ namespace DynamoPDF
               );
 
             var app = new PdfContentByte(writer);
-            var anno = PdfAnnotation.CreateSquareCircle(writer, rect, content, true);
+            var anno = PdfAnnotation.CreateSquareCircle(writer, rect, content, false);
             return anno;
         }
     }
