@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamoPDF", "DynamoPDF\DynamoPDF.csproj", "{98D6DCA3-7F24-42FC-9753-09B178328DB2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamoPDF.Tests", "DynamoPDF.Tests\DynamoPDF.Tests.csproj", "{721F538A-0FBD-4F4E-952C-2E1ED5687DAF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{98D6DCA3-7F24-42FC-9753-09B178328DB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98D6DCA3-7F24-42FC-9753-09B178328DB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98D6DCA3-7F24-42FC-9753-09B178328DB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{721F538A-0FBD-4F4E-952C-2E1ED5687DAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{721F538A-0FBD-4F4E-952C-2E1ED5687DAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{721F538A-0FBD-4F4E-952C-2E1ED5687DAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{721F538A-0FBD-4F4E-952C-2E1ED5687DAF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
