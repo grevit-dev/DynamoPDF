@@ -81,7 +81,8 @@ namespace DynamoPDF
             if (data == null) return null;
 
             Point start = Point.ByCoordinates(data[0].ToDouble(), data[1].ToDouble());
-            Point end = Point.ByCoordinates(data[2].ToDouble(), data[3].ToDouble());
+            Point end = Point.ByCoordinates(data[2].ToDouble(), data[3].ToDouble());         
+
             return new Content.Annotation(annotation, Line.ByStartPointEndPoint(start, end));
         }
 
@@ -107,6 +108,31 @@ namespace DynamoPDF
                 points.RemoveAt(points.Count - 1);
 
             return new Content.Annotation(annotation, PolyCurve.ByPoints(points, close));
+        }
+
+        /// <summary>
+        /// Convert Ink Element
+        /// </summary>
+        /// <param name="annotation"></param>
+        /// <returns></returns>
+        [IsVisibleInDynamoLibrary(false)]
+        public static Content.Annotation InkToPolyCurve(this PdfDictionary annotation)
+        {
+            PdfArray datarray = annotation.GetAsArray(PdfName.INKLIST);
+            if (datarray == null || datarray.Size == 0) return null;
+              
+            PdfArray data = datarray[0] as PdfArray;
+
+            List<Point> points = new List<Point>();
+            for (int j = 0; j < data.Size - 1; j = j + 2)
+            {
+                points.Add(Point.ByCoordinates(data[j].ToDouble(), data[j + 1].ToDouble()));
+            }
+
+            if (points.First().IsAlmostEqualTo(points.Last()))
+                points.RemoveAt(points.Count - 1);
+
+            return new Content.Annotation(annotation, PolyCurve.ByPoints(points, false));
         }
 
         /// <summary>

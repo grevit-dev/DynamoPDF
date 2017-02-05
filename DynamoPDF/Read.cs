@@ -69,6 +69,10 @@ namespace DynamoPDF
                         {
                             elements.Add(annotationElement.ToPolyCurve( false));
                         }
+                        else if (subtype == PdfName.INK)
+                        {
+                            elements.Add(annotationElement.InkToPolyCurve());
+                        }
                         else if (subtype == PdfName.SQUARE)
                         {
                             elements.Add(annotationElement.ToRectangle());
