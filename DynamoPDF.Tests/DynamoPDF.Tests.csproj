@@ -37,15 +37,15 @@
   <ItemGroup>
     <Reference Include="DSCoreNodes, Version=1.2.1.3083, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Dynamo\bin\AnyCPU\Debug\DSCoreNodes.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files\Dynamo\Dynamo Core\2\DSCoreNodes.dll</HintPath>
     </Reference>
     <Reference Include="DynamoCore, Version=1.2.1.3083, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Dynamo\bin\AnyCPU\Debug\DynamoCore.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files\Dynamo\Dynamo Core\2\DynamoCore.dll</HintPath>
     </Reference>
     <Reference Include="DynamoServices, Version=1.2.1.3083, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Dynamo\bin\AnyCPU\Debug\DynamoServices.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files\Dynamo\Dynamo Core\2\DynamoServices.dll</HintPath>
     </Reference>
     <Reference Include="itextsharp, Version=5.5.10.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\packages\iTextSharp.5.5.10\lib\itextsharp.dll</HintPath>
@@ -53,11 +53,11 @@
     </Reference>
     <Reference Include="ProtoCore, Version=1.2.1.3083, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Dynamo\bin\AnyCPU\Debug\ProtoCore.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files\Dynamo\Dynamo Core\2\ProtoCore.dll</HintPath>
     </Reference>
     <Reference Include="ProtoGeometry, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Dynamo\bin\AnyCPU\Debug\ProtoGeometry.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files\Dynamo\Dynamo Core\2\ProtoGeometry.dll</HintPath>
     </Reference>
     <Reference Include="System" />
   </ItemGroup>
